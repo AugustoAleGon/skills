@@ -13,6 +13,72 @@
       "license": "Apache-2.0",
       "local_path": "skills/uxaudit",
       "adaptation_notes": "skills/uxaudit/UPSTREAM.md"
+    },
+    "21st-cli-use": {
+      "repository": "https://github.com/21st-dev/skill",
+      "revision": "15c7436c41dc88c54094f1be93ce53bda456b114",
+      "paths": [
+        "skills/21st-cli-use",
+        "LICENSE"
+      ],
+      "license": "Apache-2.0",
+      "local_path": "skills/21st-cli-use",
+      "adaptation_notes": "skills/21st-cli-use/UPSTREAM.md"
+    },
+    "21st-ui-build": {
+      "repository": "https://github.com/21st-dev/skill",
+      "revision": "15c7436c41dc88c54094f1be93ce53bda456b114",
+      "paths": [
+        "skills/21st-ui-build",
+        "LICENSE"
+      ],
+      "license": "Apache-2.0",
+      "local_path": "skills/21st-ui-build",
+      "adaptation_notes": "skills/21st-ui-build/UPSTREAM.md"
+    },
+    "21st-ui-explore": {
+      "repository": "https://github.com/21st-dev/skill",
+      "revision": "15c7436c41dc88c54094f1be93ce53bda456b114",
+      "paths": [
+        "skills/21st-ui-explore",
+        "LICENSE"
+      ],
+      "license": "Apache-2.0",
+      "local_path": "skills/21st-ui-explore",
+      "adaptation_notes": "skills/21st-ui-explore/UPSTREAM.md"
+    },
+    "21st-ui-review": {
+      "repository": "https://github.com/21st-dev/skill",
+      "revision": "15c7436c41dc88c54094f1be93ce53bda456b114",
+      "paths": [
+        "skills/21st-ui-review",
+        "LICENSE"
+      ],
+      "license": "Apache-2.0",
+      "local_path": "skills/21st-ui-review",
+      "adaptation_notes": "skills/21st-ui-review/UPSTREAM.md"
+    },
+    "21st-design-sync": {
+      "repository": "https://github.com/21st-dev/skill",
+      "revision": "15c7436c41dc88c54094f1be93ce53bda456b114",
+      "paths": [
+        "skills/21st-design-sync",
+        "LICENSE"
+      ],
+      "license": "Apache-2.0",
+      "local_path": "skills/21st-design-sync",
+      "adaptation_notes": "skills/21st-design-sync/UPSTREAM.md"
+    },
+    "21st-registry": {
+      "repository": "https://github.com/21st-dev/skill",
+      "revision": "15c7436c41dc88c54094f1be93ce53bda456b114",
+      "paths": [
+        "skills/21st-registry",
+        "LICENSE"
+      ],
+      "license": "Apache-2.0",
+      "local_path": "skills/21st-registry",
+      "adaptation_notes": "skills/21st-registry/UPSTREAM.md"
     }
   }
 }
