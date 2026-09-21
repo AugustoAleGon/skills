@@ -43,12 +43,83 @@ collected here.
 | Skill | What it does | Source |
 | --- | --- | --- |
 | [uxaudit](skills/uxaudit/SKILL.md) | Audits usability, accessibility, interface quality, and user journeys; produces evidence and ranked fixes | [gotalab/uxaudit](https://github.com/gotalab/uxaudit) |
+| [21st-cli-use](skills/21st-cli-use/SKILL.md) | Finds, retrieves, and installs 21st catalog items for adaptation by the active agent | [21st-dev/skill](https://github.com/21st-dev/skill) |
+| [21st-ui-build](skills/21st-ui-build/SKILL.md) | Implements project-aware UI with the active agent's current model | [21st-dev/skill](https://github.com/21st-dev/skill) |
+| [21st-ui-explore](skills/21st-ui-explore/SKILL.md) | Creates and compares local UI directions with the active agent | [21st-dev/skill](https://github.com/21st-dev/skill) |
+| [21st-ui-review](skills/21st-ui-review/SKILL.md) | Reviews a component, page, or frontend diff with source/runtime evidence | [21st-dev/skill](https://github.com/21st-dev/skill) |
+| [21st-design-sync](skills/21st-design-sync/SKILL.md) | Prepares light/dark theme CSS and publishes it when requested | [21st-dev/skill](https://github.com/21st-dev/skill) |
+| [21st-registry](skills/21st-registry/SKILL.md) | Prepares components locally and manages themes, template listings, and registry/profile metadata | [21st-dev/skill](https://github.com/21st-dev/skill) |
 
 UXAudit is an experimental standalone adaptation of an upstream Claude Code
 plugin. It includes the seven role prompts and host instructions needed for
 Claude Code, Codex, and Cursor. See [provenance and changes](skills/uxaudit/UPSTREAM.md).
 Installation is tested for all three agents; full audits inside each host are
 not yet verified.
+
+## Use the adapted 21st skills
+
+These six skills are modified imports pinned to upstream commit
+[`15c7436c41dc88c54094f1be93ce53bda456b114`](https://github.com/21st-dev/skill/tree/15c7436c41dc88c54094f1be93ce53bda456b114).
+The hosted `21st-ai` skill is excluded. Design reasoning, generation, variants,
+iteration, and critique use the **active agent's current model**, regardless of
+the account's 21st AI access. No second AI subscription, provider selection,
+named subagent, or plugin is required by these skills. They do not change the
+host's model settings or technically disable other installed tools.
+
+Install the six skills, or select any one independently:
+
+```bash
+npx skills@latest add AugustoAleGon/skills --skill 21st-cli-use 21st-ui-build 21st-ui-explore 21st-ui-review 21st-design-sync 21st-registry
+npx skills@latest add AugustoAleGon/skills --skill 21st-ui-build
+```
+
+Example requests:
+
+```text
+Use 21st-ui-build to implement this pricing page with our existing components.
+Use 21st-ui-explore to show three local dashboard directions.
+Use 21st-ui-review to review this frontend diff without changing files.
+Use 21st-cli-use to find a suitable 21st navigation component.
+Use 21st-design-sync to prepare our light/dark theme CSS for review.
+Use 21st-registry to prepare this component and its demo locally.
+```
+
+Codex also supports explicit `$21st-ui-build`-style invocation. Each bundle is
+self-contained; sibling skill suggestions are optional. Build, explore, review,
+and theme/component preparation can proceed without a 21st account. Previews
+use the target project's framework, dev server, and available browser tools.
+Missing browser capabilities must be reported as unverified runtime coverage.
+
+Catalog and management operations use `@21st-dev/cli` (reviewed baseline
+**1.17.1**, Node.js 18+). If the CLI is absent, the skills use
+`npx @21st-dev/cli@1.17.1` for relevant operations. Skills installation does not
+install that runtime or log in. Catalog access may require authentication and
+has account-dependent code retrieval limits; these are separate from AI
+generation. If access fails, ordinary UI work can continue locally. Keep keys
+in existing environment credentials or use a saved login where supported.
+Theme/template/profile management requires an API key in the reviewed workflow.
+
+Project design-context extraction and UI rule analysis are local code, but
+the CLI has telemetry handling. `search --context auto` sends design context
+to the service, so the adapted skills default to ordinary search and local
+fit assessment. No zero-network or server-internals guarantee is implied.
+
+**Component publishing limitation:** the reviewed client/docs do not establish
+whether Studio's automatic cover/video pipeline avoids additional AI models.
+This adaptation therefore supports local component/demo/cover preparation but
+excludes remote component publishing, Studio checkout, and Studio rendering.
+A supplied cover is not proof that all background model work is disabled.
+Theme publication, template listings, and metadata/profile changes remain
+available within the user's authorized scope. Theme publication is public;
+template listings initially enter moderation. See the
+[registry provenance](skills/21st-registry/UPSTREAM.md) and each skill's
+`UPSTREAM.md` for exact adaptations.
+
+Use this collection's Skills CLI source for installation and updates, not the
+upstream 21st skill installer/updater, which distributes different workflows.
+Installation checks cover the complete collection and individual skills for
+Claude Code, Codex, and Cursor. They do not establish end-to-end host behavior
+or authenticated catalog/publishing coverage.
 
 ## Use UXAudit
 
@@ -81,6 +152,16 @@ skills/
     templates/
     LICENSE
     NOTICE
+    UPSTREAM.md
+  21st-cli-use/
+  21st-ui-build/
+  21st-ui-explore/
+  21st-ui-review/
+  21st-design-sync/
+  21st-registry/
+    SKILL.md
+    references/
+    LICENSE
     UPSTREAM.md
 scripts/validate.py
 sources.json
@@ -124,4 +205,6 @@ The integration test requires Node/npm and network access to resolve
 `skills@latest`; it does not install into your personal agent directories.
 GitHub Actions runs these checks plus JavaScript syntax checks.
 
-Third-party code retains its original license; UXAudit is Apache-2.0.
+Third-party code retains its original license; UXAudit and the imported 21st
+skills are Apache-2.0. Each imported skill includes its own license and
+provenance record. The separate 21st CLI is not vendored here.
