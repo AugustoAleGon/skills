@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "skills": {
+    "uxaudit": {
+      "repository": "https://github.com/gotalab/uxaudit",
+      "revision": "36244e37c96405715e5e7397d5752a431bc61c77",
+      "paths": [
+        "skills/uxaudit",
+        "agents",
+        "LICENSE",
+        "NOTICE"
+      ],
+      "license": "Apache-2.0",
+      "local_path": "skills/uxaudit",
+      "adaptation_notes": "skills/uxaudit/UPSTREAM.md"
+    }
+  }
+}
