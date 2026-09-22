@@ -1,5 +1,18 @@
 {
   "version": 1,
+  "local_skills": {
+    "update-collected-skills": {
+      "local_path": "skills/update-collected-skills",
+      "internal": true
+    }
+  },
+  "excluded_skills": [
+    {
+      "repository": "https://github.com/21st-dev/skill",
+      "path": "skills/21st-ai",
+      "reason": "Hosted AI workflow excluded; this collection uses the active agent's current model."
+    }
+  ],
   "skills": {
     "uxaudit": {
       "repository": "https://github.com/gotalab/uxaudit",
