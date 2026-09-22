@@ -11,7 +11,7 @@ From the project where you want to use the skills:
 npx skills@latest add AugustoAleGon/skills
 ```
 
-Choose the skills and agents in the installer. To install every skill for all
+Choose the skills and agents in the installer. To install every public skill for all
 three agents without prompts:
 
 ```bash
@@ -174,6 +174,28 @@ working on this collection load its skills directly. Distribution uses `skills/`
 and works without those development links.
 
 ## Development
+
+For maintenance in this checkout, invoke `$update-collected-skills`, or ask the
+agent to use `skills/update-collected-skills/SKILL.md`. For example:
+
+```text
+Use update-collected-skills to check all tracked upstreams and report new candidates.
+Use update-collected-skills to update uxaudit while preserving our local adaptations.
+```
+
+The helper creates base/upstream/local snapshots and a comparison report in a
+new directory outside the checkout. Check mode leaves tracked files untouched;
+update mode applies reviewed changes and runs validation. Newly discovered skills
+are candidates until additions are in scope. `sources.json` records imported
+provenance under `skills`, locally authored maintenance skills under `local_skills`,
+and intentional upstream exclusions under `excluded_skills`.
+
+The canonical maintenance skill lives at `skills/update-collected-skills/`, with
+relative development links like the public skills. Its `metadata.internal: true`
+excludes it from ordinary Skills CLI listing and bulk installation. Explicit
+selection or `INSTALL_INTERNAL_SKILLS=1` can still install it; this is not access
+control or a promise that the source is private. It is omitted from the public
+skill catalog above. Integration tests verify the normal export boundary.
 
 Add a self-contained directory at `skills/<name>/`, with `name` and `description`
 frontmatter in `SKILL.md` and relative resource paths. Preserve third-party
