@@ -42,6 +42,7 @@ collected here.
 
 | Skill | What it does | Source |
 | --- | --- | --- |
+| [typescript-best-practices](skills/typescript-best-practices/SKILL.md) | Guides TypeScript type modeling, boundary validation, narrowing, and schema-derived types | [cursor/plugins: pstack](https://github.com/cursor/plugins/tree/ccb5507cec1546dc88135c1139c811e6c59115ba/pstack/skills/typescript-best-practices) |
 | [uxaudit](skills/uxaudit/SKILL.md) | Audits usability, accessibility, interface quality, and user journeys; produces evidence and ranked fixes | [gotalab/uxaudit](https://github.com/gotalab/uxaudit) |
 | [21st-cli-use](skills/21st-cli-use/SKILL.md) | Finds, retrieves, and installs 21st catalog items for adaptation by the active agent | [21st-dev/skill](https://github.com/21st-dev/skill) |
 | [21st-ui-build](skills/21st-ui-build/SKILL.md) | Implements project-aware UI with the active agent's current model | [21st-dev/skill](https://github.com/21st-dev/skill) |
@@ -55,6 +56,22 @@ plugin. It includes the seven role prompts and host instructions needed for
 Claude Code, Codex, and Cursor. See [provenance and changes](skills/uxaudit/UPSTREAM.md).
 Installation is tested for all three agents; full audits inside each host are
 not yet verified.
+
+## Use TypeScript best practices
+
+```bash
+npx skills@latest add AugustoAleGon/skills --skill typescript-best-practices
+```
+
+In a TypeScript project, ask: “Use typescript-best-practices to review these
+types,” or invoke `$typescript-best-practices` in Codex. The bundle includes
+its type-system and boundary-discipline principles, plus code examples, so no
+Cursor plugin or companion skill installation is required. It has no runtime
+dependencies; schema examples use the target project's existing library.
+
+This modified MIT-licensed import is pinned to cursor/plugins commit
+[`ccb5507cec1546dc88135c1139c811e6c59115ba`](https://github.com/cursor/plugins/tree/ccb5507cec1546dc88135c1139c811e6c59115ba).
+See [provenance and changes](skills/typescript-best-practices/UPSTREAM.md).
 
 ## Use the adapted 21st skills
 
@@ -143,6 +160,11 @@ skill files, not its browser/runtime dependencies. Project reports default to
 
 ```text
 skills/
+  typescript-best-practices/
+    SKILL.md
+    references/
+    LICENSE
+    UPSTREAM.md
   uxaudit/
     SKILL.md
     references/
@@ -228,5 +250,6 @@ The integration test requires Node/npm and network access to resolve
 GitHub Actions runs these checks plus JavaScript syntax checks.
 
 Third-party code retains its original license; UXAudit and the imported 21st
-skills are Apache-2.0. Each imported skill includes its own license and
-provenance record. The separate 21st CLI is not vendored here.
+skills are Apache-2.0, and TypeScript best practices is MIT. Each imported skill
+includes its own license and provenance record. The separate 21st CLI is not
+vendored here.
