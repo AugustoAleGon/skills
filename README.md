@@ -43,6 +43,7 @@ collected here.
 | Skill | What it does | Source |
 | --- | --- | --- |
 | [asd-ste100](skills/asd-ste100/SKILL.md) | Rewrites technical English for clarity while preserving meaning and uncertainty; includes a structural linter | [danyuchn/asd-ste100-skill](https://github.com/danyuchn/asd-ste100-skill) |
+| [vercel-react-best-practices](skills/vercel-react-best-practices/SKILL.md) | Guides React and Next.js performance work with 70 prioritized rules and examples | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices) |
 | [typescript-best-practices](skills/typescript-best-practices/SKILL.md) | Guides TypeScript type modeling, boundary validation, narrowing, and schema-derived types | [cursor/plugins: pstack](https://github.com/cursor/plugins/tree/e5136d82418d2db3165ea1050d17577cd618cc05/pstack/skills/typescript-best-practices) |
 | [uxaudit](skills/uxaudit/SKILL.md) | Audits usability, accessibility, interface quality, and user journeys; produces evidence and ranked fixes | [gotalab/uxaudit](https://github.com/gotalab/uxaudit) |
 | [21st-cli-use](skills/21st-cli-use/SKILL.md) | Finds, retrieves, and installs 21st catalog items for adaptation by the active agent | [21st-dev/skill](https://github.com/21st-dev/skill) |
@@ -58,20 +59,28 @@ Claude Code, Codex, and Cursor. See [provenance and changes](skills/uxaudit/UPST
 Installation is tested for all three agents; full audits inside each host are
 not yet verified.
 
-## Use technical English
+## Use technical English and React best practices
 
 ```bash
-npx skills@latest add AugustoAleGon/skills --skill asd-ste100
+npx skills@latest add AugustoAleGon/skills --skill asd-ste100 vercel-react-best-practices
 ```
 
 Ask “Use asd-ste100 to clarify this tool description without changing its
-meaning.”
+meaning,” or “Use vercel-react-best-practices to review this page's loading
+performance.” Each skill can also be installed independently.
 
 ASD-STE100 is pinned to `3944283c183eea13fe5bd902b572da3b4de8bf44`.
 Its optional structural linter requires Python 3.10+ and no third-party packages.
 It preserves uncertainty and requirement strength; it does not include the
 official ASD dictionary or certify STE compliance. See its
 [provenance and adaptations](skills/asd-ste100/UPSTREAM.md).
+
+Vercel React best practices is pinned to
+`063bee94c3f4df8453406c830b0a7df0f2860278`. Its rules and compiled reference
+have no runtime dependencies. Apply examples to the target project's versions
+and existing libraries, and measure performance in that project. It complements
+the TypeScript skill's type modeling and the 21st skills' UI workflows. See its
+[provenance and license declaration](skills/vercel-react-best-practices/UPSTREAM.md).
 
 ## Use TypeScript best practices
 
@@ -183,6 +192,12 @@ skills/
     scripts/
     LICENSE
     UPSTREAM.md
+  vercel-react-best-practices/
+    SKILL.md
+    rules/
+    references/
+    LICENSE
+    UPSTREAM.md
   typescript-best-practices/
     SKILL.md
     references/
@@ -274,7 +289,8 @@ The integration test requires Node/npm and network access to resolve
 GitHub Actions runs these checks plus JavaScript syntax checks.
 
 Third-party code retains its original license; UXAudit and the imported 21st
-skills are Apache-2.0. TypeScript best practices and ASD-STE100 are MIT.
-Each imported skill
+skills are Apache-2.0. TypeScript best practices, ASD-STE100, and Vercel React
+best practices are MIT; Vercel's license declaration is documented in its
+provenance file. Each imported skill
 includes its own license and provenance record. The separate 21st CLI is not
 vendored here.
