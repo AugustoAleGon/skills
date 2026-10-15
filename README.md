@@ -42,6 +42,7 @@ collected here.
 
 | Skill | What it does | Source |
 | --- | --- | --- |
+| [asd-ste100](skills/asd-ste100/SKILL.md) | Rewrites technical English for clarity while preserving meaning and uncertainty; includes a structural linter | [danyuchn/asd-ste100-skill](https://github.com/danyuchn/asd-ste100-skill) |
 | [typescript-best-practices](skills/typescript-best-practices/SKILL.md) | Guides TypeScript type modeling, boundary validation, narrowing, and schema-derived types | [cursor/plugins: pstack](https://github.com/cursor/plugins/tree/e5136d82418d2db3165ea1050d17577cd618cc05/pstack/skills/typescript-best-practices) |
 | [uxaudit](skills/uxaudit/SKILL.md) | Audits usability, accessibility, interface quality, and user journeys; produces evidence and ranked fixes | [gotalab/uxaudit](https://github.com/gotalab/uxaudit) |
 | [21st-cli-use](skills/21st-cli-use/SKILL.md) | Finds, retrieves, and installs 21st catalog items for adaptation by the active agent | [21st-dev/skill](https://github.com/21st-dev/skill) |
@@ -56,6 +57,21 @@ plugin. It includes the seven role prompts and host instructions needed for
 Claude Code, Codex, and Cursor. See [provenance and changes](skills/uxaudit/UPSTREAM.md).
 Installation is tested for all three agents; full audits inside each host are
 not yet verified.
+
+## Use technical English
+
+```bash
+npx skills@latest add AugustoAleGon/skills --skill asd-ste100
+```
+
+Ask “Use asd-ste100 to clarify this tool description without changing its
+meaning.”
+
+ASD-STE100 is pinned to `3944283c183eea13fe5bd902b572da3b4de8bf44`.
+Its optional structural linter requires Python 3.10+ and no third-party packages.
+It preserves uncertainty and requirement strength; it does not include the
+official ASD dictionary or certify STE compliance. See its
+[provenance and adaptations](skills/asd-ste100/UPSTREAM.md).
 
 ## Use TypeScript best practices
 
@@ -160,6 +176,13 @@ skill files, not its browser/runtime dependencies. Project reports default to
 
 ```text
 skills/
+  asd-ste100/
+    SKILL.md
+    examples/
+    references/
+    scripts/
+    LICENSE
+    UPSTREAM.md
   typescript-best-practices/
     SKILL.md
     references/
@@ -243,6 +266,7 @@ python3 -m unittest discover -s tests -v
 python3 scripts/validate.py
 python3 skills/uxaudit/scripts/validate_checks.py
 python3 skills/uxaudit/scripts/test_checks.py
+python3 skills/asd-ste100/scripts/ste-lint.py --selftest
 ```
 
 The integration test requires Node/npm and network access to resolve
@@ -250,6 +274,7 @@ The integration test requires Node/npm and network access to resolve
 GitHub Actions runs these checks plus JavaScript syntax checks.
 
 Third-party code retains its original license; UXAudit and the imported 21st
-skills are Apache-2.0, and TypeScript best practices is MIT. Each imported skill
+skills are Apache-2.0. TypeScript best practices and ASD-STE100 are MIT.
+Each imported skill
 includes its own license and provenance record. The separate 21st CLI is not
 vendored here.

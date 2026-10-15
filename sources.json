@@ -105,6 +105,20 @@
       "license": "Apache-2.0",
       "local_path": "skills/21st-registry",
       "adaptation_notes": "skills/21st-registry/UPSTREAM.md"
+    },
+    "asd-ste100": {
+      "repository": "https://github.com/danyuchn/asd-ste100-skill",
+      "revision": "3944283c183eea13fe5bd902b572da3b4de8bf44",
+      "paths": [
+        "SKILL.md",
+        "examples",
+        "references",
+        "scripts",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/asd-ste100",
+      "adaptation_notes": "skills/asd-ste100/UPSTREAM.md"
     }
   }
 }
