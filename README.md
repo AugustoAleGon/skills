@@ -42,7 +42,7 @@ collected here.
 
 | Skill | What it does | Source |
 | --- | --- | --- |
-| [typescript-best-practices](skills/typescript-best-practices/SKILL.md) | Guides TypeScript type modeling, boundary validation, narrowing, and schema-derived types | [cursor/plugins: pstack](https://github.com/cursor/plugins/tree/ccb5507cec1546dc88135c1139c811e6c59115ba/pstack/skills/typescript-best-practices) |
+| [typescript-best-practices](skills/typescript-best-practices/SKILL.md) | Guides TypeScript type modeling, boundary validation, narrowing, and schema-derived types | [cursor/plugins: pstack](https://github.com/cursor/plugins/tree/e5136d82418d2db3165ea1050d17577cd618cc05/pstack/skills/typescript-best-practices) |
 | [uxaudit](skills/uxaudit/SKILL.md) | Audits usability, accessibility, interface quality, and user journeys; produces evidence and ranked fixes | [gotalab/uxaudit](https://github.com/gotalab/uxaudit) |
 | [21st-cli-use](skills/21st-cli-use/SKILL.md) | Finds, retrieves, and installs 21st catalog items for adaptation by the active agent | [21st-dev/skill](https://github.com/21st-dev/skill) |
 | [21st-ui-build](skills/21st-ui-build/SKILL.md) | Implements project-aware UI with the active agent's current model | [21st-dev/skill](https://github.com/21st-dev/skill) |
@@ -70,7 +70,7 @@ Cursor plugin or companion skill installation is required. It has no runtime
 dependencies; schema examples use the target project's existing library.
 
 This modified MIT-licensed import is pinned to cursor/plugins commit
-[`ccb5507cec1546dc88135c1139c811e6c59115ba`](https://github.com/cursor/plugins/tree/ccb5507cec1546dc88135c1139c811e6c59115ba).
+[`e5136d82418d2db3165ea1050d17577cd618cc05`](https://github.com/cursor/plugins/tree/e5136d82418d2db3165ea1050d17577cd618cc05).
 See [provenance and changes](skills/typescript-best-practices/UPSTREAM.md).
 
 ## Use the adapted 21st skills

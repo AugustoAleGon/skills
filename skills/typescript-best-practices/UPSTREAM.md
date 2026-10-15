@@ -1,7 +1,7 @@
 # typescript-best-practices provenance
 
 - Source: https://github.com/cursor/plugins (the `pstack` plugin).
-- Pinned commit: `ccb5507cec1546dc88135c1139c811e6c59115ba`.
+- Pinned commit: `e5136d82418d2db3165ea1050d17577cd618cc05`.
 - Imported/adapted paths:
   - `pstack/skills/typescript-best-practices/`
   - `pstack/skills/principle-type-system-discipline/SKILL.md`
@@ -32,6 +32,17 @@ require the upstream Cursor plugin or its other skills.
   and non-finite values, so the example requires boundary validation and describes
   when a validated brand is needed.
 - Added this provenance file and an unchanged copy of `pstack/LICENSE`.
+
+## Upstream update review
+
+Reviewed `ccb5507cec1546dc88135c1139c811e6c59115ba` →
+`e5136d82418d2db3165ea1050d17577cd618cc05`. The only change in the imported paths
+condenses the type-system discipline reference and folds its review questions
+into the relevant rules. Adopted that revision while retaining relative links
+and omitting the external `encode-lessons-in-structure` skill dependency.
+Clarified the reference's duration example to match the existing boundary
+validation correction in `references/patterns.md`. The rule table, patterns,
+boundary reference, and MIT license are unchanged.
 
 ## Verification and limits
 

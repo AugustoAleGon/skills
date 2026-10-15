@@ -16,7 +16,7 @@
   "skills": {
     "typescript-best-practices": {
       "repository": "https://github.com/cursor/plugins",
-      "revision": "ccb5507cec1546dc88135c1139c811e6c59115ba",
+      "revision": "e5136d82418d2db3165ea1050d17577cd618cc05",
       "paths": [
         "pstack/skills/typescript-best-practices",
         "pstack/skills/principle-type-system-discipline/SKILL.md",
