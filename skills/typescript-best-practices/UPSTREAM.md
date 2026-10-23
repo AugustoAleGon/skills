@@ -1,7 +1,7 @@
 # typescript-best-practices provenance
 
 - Source: https://github.com/cursor/plugins (the `pstack` plugin).
-- Pinned commit: `e5136d82418d2db3165ea1050d17577cd618cc05`.
+- Pinned commit: `8b3326d99fd4b993cb33a24dad8af03175c642c5`.
 - Imported/adapted paths:
   - `pstack/skills/typescript-best-practices/`
   - `pstack/skills/principle-type-system-discipline/SKILL.md`
@@ -43,6 +43,19 @@ and omitting the external `encode-lessons-in-structure` skill dependency.
 Clarified the reference's duration example to match the existing boundary
 validation correction in `references/patterns.md`. The rule table, patterns,
 boundary reference, and MIT license are unchanged.
+
+## Upstream review: 2026-10-23
+
+Reviewed `e5136d82418d2db3165ea1050d17577cd618cc05` → `8b3326d99fd4b993cb33a24dad8af03175c642c5` across all imported paths.
+Accepted the verifying type-guard branding example and rule, and the shorter
+type-system principle (detailed modeling guidance remains in the entry point
+and patterns). Preserved standalone relative references, portable frontmatter,
+and the corrected random-selection and duration examples. The boundary
+principle and MIT license are unchanged. No incoming changes were omitted
+beyond the existing removal of companion-skill dependencies.
+
+The shorter upstream principle removes its time-range paragraph; the corrected
+duration guidance remains in `references/patterns.md`.
 
 ## Verification and limits
 
