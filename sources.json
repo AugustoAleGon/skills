@@ -29,7 +29,7 @@
     },
     "uxaudit": {
       "repository": "https://github.com/gotalab/uxaudit",
-      "revision": "36244e37c96405715e5e7397d5752a431bc61c77",
+      "revision": "545cab0a925a712583799396c7051a02332d311f",
       "paths": [
         "skills/uxaudit",
         "agents",

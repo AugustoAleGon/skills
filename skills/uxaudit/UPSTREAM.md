@@ -1,7 +1,7 @@
 # UXAudit provenance
 
 - Source: https://github.com/gotalab/uxaudit
-- Pinned commit: `36244e37c96405715e5e7397d5752a431bc61c77`
+- Pinned commit: `545cab0a925a712583799396c7051a02332d311f`
 - Imported: `skills/uxaudit/`, seven `agents/uxaudit-*.md` prompts, `LICENSE`, and `NOTICE`.
 - License: Apache-2.0. Copyright 2026 gotalab. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
@@ -29,3 +29,10 @@ To update, fetch the desired revision into a temporary directory, review changes
 to the imported paths, reapply the documented adaptations, retain license/notice,
 update `sources.json` and this file, and run repository checks. Do not replace
 this folder wholesale without reviewing the adaptations.
+
+## Upstream review: 2026-10-23
+
+Reviewed `36244e37c96405715e5e7397d5752a431bc61c77` → `545cab0a925a712583799396c7051a02332d311f` across all imported paths.
+The imported skill, role prompts, license, and notice are byte-for-byte
+unchanged upstream. Advanced the provenance pin only; all standalone host
+adaptations and runtime coverage limits remain in place.
