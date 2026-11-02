@@ -6,3 +6,4 @@ node_modules/
 .agents/uxaudit/
 # Local AI runtime state
 .atl/
+/odd/
