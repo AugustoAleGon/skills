@@ -173,6 +173,17 @@
       "license": "MIT",
       "local_path": "skills/writing-guidelines",
       "adaptation_notes": "skills/writing-guidelines/UPSTREAM.md"
+    },
+    "ui-ux-pro-max": {
+      "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "revision": "713eef51b04efc98d6fa565323b495f7c9c89fd4",
+      "paths": [
+        ".claude/skills/ui-ux-pro-max",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/ui-ux-pro-max",
+      "adaptation_notes": "skills/ui-ux-pro-max/UPSTREAM.md"
     }
   }
 }

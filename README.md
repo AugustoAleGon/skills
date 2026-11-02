@@ -37,6 +37,7 @@ does not install each skill's runtime dependencies or log into services.
 | [vercel-composition-patterns](skills/vercel-composition-patterns/SKILL.md) | Design composable React component APIs and state boundaries |
 | [web-design-guidelines](skills/web-design-guidelines/SKILL.md) | Review UI code against freshly retrieved Vercel interface guidelines |
 | [writing-guidelines](skills/writing-guidelines/SKILL.md) | Review prose against freshly retrieved Vercel writing guidelines |
+| [ui-ux-pro-max](skills/ui-ux-pro-max/SKILL.md) | Search local UI/UX guidance, palettes, typography, and stack-specific patterns |
 | [typescript-best-practices](skills/typescript-best-practices/SKILL.md) | Model types, validate boundaries, and derive types from schemas |
 | [uxaudit](skills/uxaudit/SKILL.md) | Audit usability, accessibility, interface quality, and user journeys |
 | [21st-cli-use](skills/21st-cli-use/SKILL.md) | Find, retrieve, and install 21st catalog items |
@@ -67,6 +68,10 @@ instructions, examples, and links to further guidance.
 - **Web and writing guidelines:** Require network access through the host's web
   or HTTP tool to fetch the current review criteria. They do not bundle an offline
   copy or certify compliance when retrieval is unavailable.
+- **UI/UX Pro Max:** Requires Python 3.10+; its local search uses only the standard
+  library. Resolve script paths from the loaded skill directory, not the project
+  working directory. Design-system persistence is opt-in; overwrites require
+  explicit authorization. It supplements existing design systems and workflows.
 - **UXAudit:** Requires Node.js 20+, Python 3.10+, Playwright Chromium, image
   viewing, and fresh subagent contexts. Start the app's development server first.
   Reports default to `.agents/uxaudit/`. See [setup and host requirements](skills/uxaudit/SKILL.md).
@@ -119,6 +124,8 @@ python3 scripts/validate.py
 python3 skills/uxaudit/scripts/validate_checks.py
 python3 skills/uxaudit/scripts/test_checks.py
 python3 skills/asd-ste100/scripts/ste-lint.py --selftest
+python3 skills/ui-ux-pro-max/scripts/validate_data.py
+python3 -m unittest discover -s skills/ui-ux-pro-max/scripts/tests -v
 ```
 
 Installation tests use Node/npm and network access to resolve `skills@latest`.

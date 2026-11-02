@@ -4,3 +4,5 @@ __pycache__/
 node_modules/
 .venv/
 .agents/uxaudit/
+# Local AI runtime state
+.atl/
