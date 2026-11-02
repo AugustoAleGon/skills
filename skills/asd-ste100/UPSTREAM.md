@@ -1,7 +1,7 @@
 # ASD-STE100 provenance
 
 - Source: https://github.com/danyuchn/asd-ste100-skill
-- Pinned commit: `3944283c183eea13fe5bd902b572da3b4de8bf44`
+- Pinned commit: `833810d3866645f579085aa76803541892bde692`
 - Imported/adapted paths: `SKILL.md`, `examples/`, `references/`,
   `scripts/`, and `LICENSE`.
 - License: MIT. Copyright (c) 2026 Dustin Yuchen Teng. See [LICENSE](LICENSE).
@@ -20,11 +20,25 @@ This is a modified standalone import in AugustoAleGon/skills.
 - Corrected before/after examples: retain distinct actions, uncertainty,
   recommendation strength, and source claims. Removed added instructions and
   unsupported architecture claims. Corrected the examples' writing-rules link.
-- Preserved the linter and its built-in self-tests unchanged, along with the
-  intentionally invalid edge-case fixture and the writing-rules reference.
+- Updated the linter and its expanded built-in self-tests from the pinned
+  upstream, including its executable mode. Preserved the intentionally
+  invalid edge-case fixture and the writing-rules reference.
+- Retained the local Example D instead of the upstream replacement: both reject
+  invented facts, while the local version also separates preserving source claims
+  from endorsing them or performing factual editing.
+- Corrected upstream multiline code-span lookahead so headings, list items, and
+  fenced blocks cannot hide later prose findings. Added collection-level public
+  CLI regression tests for these boundaries and the accepted linter changes.
 - Omitted the repository README's upstream installation instructions. This
   collection uses the Skills CLI source documented in its root README.
 - Added this provenance file; preserved the upstream MIT license unchanged.
+
+## Update history
+
+- Updated from `3944283c183eea13fe5bd902b572da3b4de8bf44` to the pinned commit.
+  Accepted Markdown/frontmatter parsing fixes, modal-perfect detection, expanded
+  self-tests, and cumulative repeated `--disable` flags. Portable metadata,
+  relative links, corrected examples, and the MIT license remain unchanged.
 
 ## Verification and limits
 
