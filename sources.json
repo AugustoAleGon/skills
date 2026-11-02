@@ -129,6 +129,50 @@
       "license": "MIT",
       "local_path": "skills/vercel-react-best-practices",
       "adaptation_notes": "skills/vercel-react-best-practices/UPSTREAM.md"
+    },
+    "vercel-react-native-skills": {
+      "repository": "https://github.com/vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "paths": [
+        "skills/react-native-skills",
+        "README.md"
+      ],
+      "license": "MIT",
+      "local_path": "skills/vercel-react-native-skills",
+      "adaptation_notes": "skills/vercel-react-native-skills/UPSTREAM.md"
+    },
+    "vercel-composition-patterns": {
+      "repository": "https://github.com/vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "paths": [
+        "skills/composition-patterns",
+        "README.md"
+      ],
+      "license": "MIT",
+      "local_path": "skills/vercel-composition-patterns",
+      "adaptation_notes": "skills/vercel-composition-patterns/UPSTREAM.md"
+    },
+    "web-design-guidelines": {
+      "repository": "https://github.com/vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "paths": [
+        "skills/web-design-guidelines/SKILL.md",
+        "README.md"
+      ],
+      "license": "MIT",
+      "local_path": "skills/web-design-guidelines",
+      "adaptation_notes": "skills/web-design-guidelines/UPSTREAM.md"
+    },
+    "writing-guidelines": {
+      "repository": "https://github.com/vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "paths": [
+        "skills/writing-guidelines/SKILL.md",
+        "README.md"
+      ],
+      "license": "MIT",
+      "local_path": "skills/writing-guidelines",
+      "adaptation_notes": "skills/writing-guidelines/UPSTREAM.md"
     }
   }
 }

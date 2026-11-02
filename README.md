@@ -33,6 +33,10 @@ does not install each skill's runtime dependencies or log into services.
 | --- | --- |
 | [asd-ste100](skills/asd-ste100/SKILL.md) | Clarify technical English while preserving meaning and uncertainty |
 | [vercel-react-best-practices](skills/vercel-react-best-practices/SKILL.md) | Apply 70 React and Next.js performance rules |
+| [vercel-react-native-skills](skills/vercel-react-native-skills/SKILL.md) | Apply React Native and Expo performance and interface guidance |
+| [vercel-composition-patterns](skills/vercel-composition-patterns/SKILL.md) | Design composable React component APIs and state boundaries |
+| [web-design-guidelines](skills/web-design-guidelines/SKILL.md) | Review UI code against freshly retrieved Vercel interface guidelines |
+| [writing-guidelines](skills/writing-guidelines/SKILL.md) | Review prose against freshly retrieved Vercel writing guidelines |
 | [typescript-best-practices](skills/typescript-best-practices/SKILL.md) | Model types, validate boundaries, and derive types from schemas |
 | [uxaudit](skills/uxaudit/SKILL.md) | Audit usability, accessibility, interface quality, and user journeys |
 | [21st-cli-use](skills/21st-cli-use/SKILL.md) | Find, retrieve, and install 21st catalog items |
@@ -60,6 +64,9 @@ instructions, examples, and links to further guidance.
   compliance. See [provenance](skills/asd-ste100/UPSTREAM.md).
 - **React and TypeScript:** The guidance has no runtime dependencies. Use the
   target project's versions and libraries. Measure performance in that project.
+- **Web and writing guidelines:** Require network access through the host's web
+  or HTTP tool to fetch the current review criteria. They do not bundle an offline
+  copy or certify compliance when retrieval is unavailable.
 - **UXAudit:** Requires Node.js 20+, Python 3.10+, Playwright Chromium, image
   viewing, and fresh subagent contexts. Start the app's development server first.
   Reports default to `.agents/uxaudit/`. See [setup and host requirements](skills/uxaudit/SKILL.md).
@@ -126,6 +133,7 @@ imported paths, local skills, and exclusions. Each imported bundle includes
 `UPSTREAM.md` with adaptations and a `LICENSE` file.
 
 UXAudit and the 21st skills use Apache-2.0. The other public skills use MIT.
-Vercel declares MIT in its skill metadata. Its local
+Vercel declares MIT in its repository README and selected skill metadata. The local
 [license record](skills/vercel-react-best-practices/LICENSE) documents the absence
-of a standalone upstream license file.
+of a standalone upstream license file; the new Vercel bundles record the same
+repository-wide declaration at their pinned revision.
