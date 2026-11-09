@@ -184,6 +184,17 @@
       "license": "MIT",
       "local_path": "skills/ui-ux-pro-max",
       "adaptation_notes": "skills/ui-ux-pro-max/UPSTREAM.md"
+    },
+    "handoff": {
+      "repository": "https://github.com/mattpocock/skills",
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "paths": [
+        "skills/productivity/handoff",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/handoff",
+      "adaptation_notes": "skills/handoff/UPSTREAM.md"
     }
   }
 }

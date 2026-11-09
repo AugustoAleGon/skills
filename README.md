@@ -31,6 +31,7 @@ does not install each skill's runtime dependencies or log into services.
 
 | Skill | Purpose |
 | --- | --- |
+| [handoff](skills/handoff/SKILL.md) | Save a redacted conversation handoff and copy its text to the local clipboard |
 | [asd-ste100](skills/asd-ste100/SKILL.md) | Clarify technical English while preserving meaning and uncertainty |
 | [vercel-react-best-practices](skills/vercel-react-best-practices/SKILL.md) | Apply 70 React and Next.js performance rules |
 | [vercel-react-native-skills](skills/vercel-react-native-skills/SKILL.md) | Apply React Native and Expo performance and interface guidance |
@@ -60,6 +61,10 @@ instructions, examples, and links to further guidance.
 
 ## Requirements and limits
 
+- **Handoff:** Explicitly invoked. Saves to the OS temporary directory and copies
+  the complete redacted document using an available local clipboard tool or
+  native utility. Copying replaces clipboard contents; if unavailable, the file
+  remains available. No clipboard utility is installed automatically.
 - **ASD-STE100:** The optional linter requires Python 3.10+ and no third-party
   packages. The skill omits ASD's official dictionary and does not certify STE
   compliance. See [provenance](skills/asd-ste100/UPSTREAM.md).
