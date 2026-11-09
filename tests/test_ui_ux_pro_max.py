@@ -51,6 +51,25 @@ class UiUxProMaxCliTests(unittest.TestCase):
             self.assertEqual("react", json.loads(stack.stdout)["stack"])
             self.assertGreater(json.loads(stack.stdout)["count"], 0)
 
+    def test_new_upstream_style_and_ime_guidance_are_searchable(self):
+        with tempfile.TemporaryDirectory(prefix="updated catalog ") as raw_cwd:
+            style = self.run_cli(
+                "Apple Native Experience", "--domain", "style", "--json", cwd=raw_cwd,
+            )
+            ime = self.run_cli(
+                "IME composition Enter", "--domain", "ux", "--json", cwd=raw_cwd,
+            )
+            self.assertEqual(0, style.returncode, style.stderr)
+            self.assertEqual(0, ime.returncode, ime.stderr)
+            self.assertEqual(
+                "apple-native-experience",
+                json.loads(style.stdout)["results"][0]["Style ID"],
+            )
+            self.assertEqual(
+                "IME Composition Enter",
+                json.loads(ime.stdout)["results"][0]["Issue"],
+            )
+
     def test_design_system_generation_uses_local_resources_and_does_not_write_by_default(self):
         with tempfile.TemporaryDirectory(prefix="no-write project ") as raw_cwd:
             result = self.run_cli(
