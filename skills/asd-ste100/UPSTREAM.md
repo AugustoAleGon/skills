@@ -1,7 +1,7 @@
 # ASD-STE100 provenance
 
 - Source: https://github.com/danyuchn/asd-ste100-skill
-- Pinned commit: `833810d3866645f579085aa76803541892bde692`
+- Pinned commit: `d48bfca52a2424b7f17c0de1d718e0c3b9d8f223`
 - Imported/adapted paths: `SKILL.md`, `examples/`, `references/`,
   `scripts/`, and `LICENSE`.
 - License: MIT. Copyright (c) 2026 Dustin Yuchen Teng. See [LICENSE](LICENSE).
@@ -20,25 +20,41 @@ This is a modified standalone import in AugustoAleGon/skills.
 - Corrected before/after examples: retain distinct actions, uncertainty,
   recommendation strength, and source claims. Removed added instructions and
   unsupported architecture claims. Corrected the examples' writing-rules link.
-- Updated the linter and its expanded built-in self-tests from the pinned
-  upstream, including its executable mode. Preserved the intentionally
-  invalid edge-case fixture and the writing-rules reference.
+- Updated the linter and its expanded built-in self-tests from upstream,
+  including its executable mode. Preserved the intentionally invalid edge-case
+  fixture and the writing-rules reference.
 - Retained the local Example D instead of the upstream replacement: both reject
   invented facts, while the local version also separates preserving source claims
   from endorsing them or performing factual editing.
 - Corrected upstream multiline code-span lookahead so headings, list items, and
   fenced blocks cannot hide later prose findings. Added collection-level public
   CLI regression tests for these boundaries and the accepted linter changes.
+- Kept the standalone linter's block-boundary protection and public CLI tests
+  while adopting the newer CommonMark/GitHub-aware inline-markup parsing.
+- The newer linter parses a leading YAML front matter block and checks its
+  `description` value as prose; other metadata remains excluded, and reported
+  source line and column positions remain stable.
+- Corrected description-key discovery to skip multiline quoted values of other
+  metadata fields, including escaped quotes. Public CLI regressions cover false
+  description keys and a genuine description following the quoted value.
 - Omitted the repository README's upstream installation instructions. This
   collection uses the Skills CLI source documented in its root README.
 - Added this provenance file; preserved the upstream MIT license unchanged.
 
 ## Update history
 
-- Updated from `3944283c183eea13fe5bd902b572da3b4de8bf44` to the pinned commit.
+- Updated from `3944283c183eea13fe5bd902b572da3b4de8bf44` to
+  `833810d3866645f579085aa76803541892bde692`.
   Accepted Markdown/frontmatter parsing fixes, modal-perfect detection, expanded
   self-tests, and cumulative repeated `--disable` flags. Portable metadata,
   relative links, corrected examples, and the MIT license remain unchanged.
+- Updated from `833810d3866645f579085aa76803541892bde692` to
+  `d48bfca52a2424b7f17c0de1d718e0c3b9d8f223`. Accepted CommonMark/GitHub-aware
+  handling for inline links, code spans, HTML markup, block containers, lists,
+  and paragraph boundaries, plus parsing description prose from YAML front
+  matter. Kept the local Example D and all portable skill instructions,
+  examples, references, and licensing unchanged; the upstream snapshot changed
+  only `scripts/ste-lint.py`.
 
 ## Verification and limits
 

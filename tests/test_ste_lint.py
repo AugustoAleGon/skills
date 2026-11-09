@@ -20,15 +20,37 @@ class SteLintTests(unittest.TestCase):
         self.assertEqual(result.stderr, "")
         return result.returncode, json.loads(result.stdout)
 
-    def test_frontmatter_is_not_prose_and_preserves_locations(self):
+    def test_description_frontmatter_is_linted_and_preserves_locations(self):
         text = "---\nname: x\ndescription: robust; scalable\n---\nThe job is robust.\n"
         code, report = self.run_linter(text)
         self.assertEqual(code, 1)
-        self.assertEqual(report["words"], 4)
+        self.assertEqual(report["words"], 6)
         self.assertEqual(
             [(finding["line"], finding["rule"]) for finding in report["violations"]],
-            [(5, "marketing-adjective")],
+            [(3, "marketing-adjective"), (3, "semicolon"),
+             (5, "marketing-adjective")],
         )
+
+    def test_description_like_text_in_other_quoted_metadata_is_excluded(self):
+        values = (
+            '"foo\ndescription: robust;"',
+            "'foo\ndescription: robust;'",
+            '"foo\\"\ndescription: robust;"',
+            "'foo''\ndescription: robust;'",
+        )
+        for value in values:
+            for description in ("", "description: visible; text\n"):
+                with self.subTest(value=value, description=description):
+                    text = f"---\nexample: {value}\n{description}---\n"
+                    code, report = self.run_linter(text)
+                    expected = [(4, 21, "semicolon")] if description else []
+                    self.assertEqual(code, int(bool(description)))
+                    self.assertEqual(report["count"], len(expected))
+                    self.assertEqual(report["words"], 2 if description else 0)
+                    self.assertEqual(
+                        [(v["line"], v["col"], v["rule"])
+                         for v in report["violations"]], expected,
+                    )
 
     def test_repeated_disable_flags_accumulate(self):
         text = "a; b. " + " ".join(["word"] * 30) + ".\n"
@@ -70,6 +92,22 @@ class SteLintTests(unittest.TestCase):
                 self.assertEqual(
                     [(v["line"], v["rule"]) for v in report["violations"]],
                     [(line, "semicolon")],
+                )
+
+    def test_markdown_inline_markup_is_not_counted_as_prose(self):
+        cases = (
+            ('See [the docs](https://example.test/a(b;c) "Title; text") now; stop.', [62]),
+            ('Use <span title="hidden; text">visible; text</span> now.', [39]),
+            ('Read <!-- hidden; text --> visible; text.', [35]),
+        )
+        for text, columns in cases:
+            with self.subTest(text=text):
+                code, report = self.run_linter(text)
+                self.assertEqual(code, 1)
+                self.assertEqual(
+                    [(v["col"], v["rule"]) for v in report["violations"]
+                     if v["rule"] == "semicolon"],
+                    [(column, "semicolon") for column in columns],
                 )
 
 
