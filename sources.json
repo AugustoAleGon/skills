@@ -195,6 +195,19 @@
       "license": "MIT",
       "local_path": "skills/handoff",
       "adaptation_notes": "skills/handoff/UPSTREAM.md"
+    },
+    "agent-context": {
+      "repository": "https://github.com/AugustoAleGon/arkandia-skills",
+      "revision": "485166f54f3f3bcfe4474ece859a5f78a376c5f8",
+      "paths": [
+        "arkandia/skills/agent-context/SKILL.md",
+        "arkandia/skills/agent-context/references/claim-validation.md",
+        "arkandia/skills/agent-context/templates/en",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/agent-context",
+      "adaptation_notes": "skills/agent-context/UPSTREAM.md"
     }
   }
 }

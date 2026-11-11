@@ -31,6 +31,7 @@ does not install each skill's runtime dependencies or log into services.
 
 | Skill | Purpose |
 | --- | --- |
+| [agent-context](skills/agent-context/SKILL.md) | Generate repository context with evidence-backed framework inference |
 | [handoff](skills/handoff/SKILL.md) | Save a redacted conversation handoff and copy its text to the local clipboard |
 | [asd-ste100](skills/asd-ste100/SKILL.md) | Clarify technical English while preserving meaning and uncertainty |
 | [vercel-react-best-practices](skills/vercel-react-best-practices/SKILL.md) | Apply 70 React and Next.js performance rules |
@@ -61,6 +62,11 @@ instructions, examples, and links to further guidance.
 
 ## Requirements and limits
 
+- **Agent context:** Explicitly invoked; generates Markdown context.
+  Preserves existing docs unless specific edits are authorized. Its framework
+  reference guides evidence-based inference, not automatic detection or runtime
+  verification. See [framework sources](skills/agent-context/references/framework-signals.md)
+  and [provenance](skills/agent-context/UPSTREAM.md).
 - **Handoff:** Explicitly invoked. Saves to the OS temporary directory and copies
   the complete redacted document using an available local clipboard tool or
   native utility. Copying replaces clipboard contents; if unavailable, the file
