@@ -47,7 +47,11 @@ def main(root=ROOT):
             # top-level internal field or the string "true" with CLI metadata.
             metadata = re.search(r"^metadata:\s*\n((?:[ \t]+[^\n]*\n?)*)", match[1], re.M)
             internal = metadata and re.search(r"^  internal: true[ \t]*$", metadata[1], re.M)
-            if source.get("internal") is not True or not internal:
+            if source.get("internal") is False:
+                flag = metadata and re.search(r"^  internal:([^\n]*)", metadata[1], re.M)
+                if flag and flag[1].strip() != "false":
+                    errors.append(f"{name}: public local skill must not have internal metadata")
+            elif source.get("internal") is not True or not internal:
                 errors.append(f"{name}: local maintenance skill must have metadata.internal: true")
             if any(key in source for key in ("repository", "revision", "paths", "adaptation_notes")):
                 errors.append(f"{name}: locally authored skill must not claim imported provenance")

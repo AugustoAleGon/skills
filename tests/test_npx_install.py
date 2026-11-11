@@ -10,8 +10,13 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = json.loads((ROOT / "sources.json").read_text())
-PUBLIC_SKILLS = set(MANIFEST["skills"])
-INTERNAL_SKILLS = set(MANIFEST.get("local_skills", {}))
+LOCAL_SKILLS = MANIFEST.get("local_skills", {})
+PUBLIC_SKILLS = set(MANIFEST["skills"]) | {
+    name for name, record in LOCAL_SKILLS.items() if record.get("internal") is False
+}
+INTERNAL_SKILLS = {
+    name for name, record in LOCAL_SKILLS.items() if record.get("internal") is True
+}
 
 
 def cli_env():

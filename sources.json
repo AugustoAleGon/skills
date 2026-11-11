@@ -4,6 +4,15 @@
     "update-collected-skills": {
       "local_path": "skills/update-collected-skills",
       "internal": true
+    },
+    "atomic-commits": {
+      "local_path": "skills/atomic-commits",
+      "internal": false,
+      "license": "MIT",
+      "references": [
+        "https://medium.com/@sandrodz/a-developers-guide-to-atomic-git-commits-c7b873b39223",
+        "https://www.conventionalcommits.org/en/v1.0.0/"
+      ]
     }
   },
   "excluded_skills": [

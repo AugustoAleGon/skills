@@ -6,6 +6,7 @@ import io
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -164,6 +165,39 @@ class UpstreamReviewTests(unittest.TestCase):
 
 
 class LocalSkillValidationTests(unittest.TestCase):
+    def test_public_local_skill_requires_consistent_visibility_without_fake_provenance(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            skill = root / "skills/example"
+            skill.mkdir(parents=True)
+            header = "---\nname: example\ndescription: Public authored skill\n"
+            for metadata, visibility, extra, valid in (
+                ("", False, {}, True),
+                ("metadata:\n  internal: false\n", False, {}, True),
+                ("metadata:\n  internal: true\n", False, {}, False),
+                ("metadata:\n  internal: 'false'\n", False, {}, False),
+                ("", "false", {}, False),
+                ("", None, {}, False),
+                ("", False, {"revision": "0" * 40}, False),
+            ):
+                with self.subTest(metadata=metadata, visibility=visibility, extra=extra):
+                    record = {"local_path": "skills/example", "internal": visibility, **extra}
+                    (root / "sources.json").write_text(json.dumps({
+                        "skills": {}, "local_skills": {"example": record},
+                    }))
+                    (skill / "SKILL.md").write_text(header + metadata + "---\nGuide\n")
+                    before = {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+                    result = subprocess.run(
+                        [sys.executable, "-c", "import sys; sys.path.insert(0, sys.argv[1]); "
+                         "import validate; sys.exit(validate.main(sys.argv[2]))",
+                         str(ROOT / "scripts"), str(root)],
+                        capture_output=True, text=True,
+                    )
+                    self.assertEqual(result.returncode, 0 if valid else 1, result.stderr)
+                    self.assertEqual(bool(result.stderr), not valid)
+                    self.assertEqual(bool(result.stdout), valid)
+                    self.assertEqual(before, {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()})
+
     def test_local_provenance_and_export_flag_are_required(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

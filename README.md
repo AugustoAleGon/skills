@@ -12,7 +12,26 @@ npx skills@latest add AugustoAleGon/skills
 ```
 
 Choose skills and agents in the installer. Installation requires Node.js/npm
-and Git. To install all public skills for all three agents without prompts:
+and Git.
+
+### Install one skill
+
+Select just one skill by name, then choose its target agents in the installer:
+
+```bash
+npx skills@latest add AugustoAleGon/skills --skill atomic-commits
+```
+
+Replace `atomic-commits` with any name in the table below. To install only that
+skill for Codex without prompts:
+
+```bash
+npx --yes skills@latest add AugustoAleGon/skills --skill atomic-commits --agent codex --yes
+```
+
+### Install all public skills
+
+To install all public skills for all three agents without prompts:
 
 ```bash
 npx --yes skills@latest add AugustoAleGon/skills --skill '*' --agent claude-code codex cursor --yes
@@ -31,6 +50,7 @@ does not install each skill's runtime dependencies or log into services.
 
 | Skill | Purpose |
 | --- | --- |
+| [atomic-commits](skills/atomic-commits/SKILL.md) | Split changes into complete logical commits and write Conventional Commit messages |
 | [agent-context](skills/agent-context/SKILL.md) | Generate repository context with evidence-backed framework inference |
 | [handoff](skills/handoff/SKILL.md) | Save a redacted conversation handoff and copy its text to the local clipboard |
 | [asd-ste100](skills/asd-ste100/SKILL.md) | Clarify technical English while preserving meaning and uncertainty |
@@ -62,6 +82,9 @@ instructions, examples, and links to further guidance.
 
 ## Requirements and limits
 
+- **Atomic commits:** Requires Git for inspection and committing. Planning is
+  read-only; creating commits requires authorization. It does not push or rewrite
+  history implicitly. See [sources and authorship](skills/atomic-commits/UPSTREAM.md).
 - **Agent context:** Explicitly invoked; generates Markdown context.
   Preserves existing docs unless specific edits are authorized. Its framework
   reference guides evidence-based inference, not automatic detection or runtime
@@ -149,6 +172,11 @@ using this checkout's absolute path as the source.
 [sources.json](sources.json) records upstream repositories, exact commits,
 imported paths, local skills, and exclusions. Each imported bundle includes
 `UPSTREAM.md` with adaptations and a `LICENSE` file.
+
+Locally authored skills use `local_skills` with an explicit `internal` boolean:
+`false` for public skills and `true` for maintenance-only skills. They do not
+claim upstream Git revisions. Atomic commits is original MIT-licensed guidance
+informed by the sources linked in its provenance document.
 
 UXAudit and the 21st skills use Apache-2.0. The other public skills use MIT.
 Vercel declares MIT in its repository README and selected skill metadata. The local
