@@ -117,7 +117,7 @@
     },
     "asd-ste100": {
       "repository": "https://github.com/danyuchn/asd-ste100-skill",
-      "revision": "d48bfca52a2424b7f17c0de1d718e0c3b9d8f223",
+      "revision": "d5caf54905eac776e9bb3a247be84153701ff4f8",
       "paths": [
         "SKILL.md",
         "examples",

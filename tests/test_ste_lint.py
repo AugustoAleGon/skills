@@ -110,6 +110,30 @@ class SteLintTests(unittest.TestCase):
                     [(column, "semicolon") for column in columns],
                 )
 
+    def test_emphasis_closers_end_sentences_without_autolink_interference(self):
+        tail = "The " + " ".join(["word"] * 20) + " more words here now."
+        for lead in ("**`make test` passes.**", "_Read <https://example.com/a_> first._"):
+            with self.subTest(lead=lead):
+                code, report = self.run_linter(f"{lead} {tail}\n")
+                self.assertEqual((code, report["count"], report["violations"]), (0, 0, []))
+
+    def test_literal_glob_does_not_end_a_sentence(self):
+        text = "The " + " ".join(["word"] * 20) + " words match file.* against the list.\n"
+        code, report = self.run_linter(text)
+        self.assertEqual((code, report["count"]), (1, 1))
+        self.assertEqual(
+            [(v["line"], v["rule"], v["match"]) for v in report["violations"]],
+            [(1, "long-sentence", "27 words")],
+        )
+
+    def test_list_fence_does_not_hide_following_item(self):
+        code, report = self.run_linter("- ~~~\n  <!--\n- Run tests and\n")
+        self.assertEqual((code, report["count"]), (1, 1))
+        self.assertEqual(
+            [(v["line"], v["rule"]) for v in report["violations"]],
+            [(3, "dangling-conjunction")],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

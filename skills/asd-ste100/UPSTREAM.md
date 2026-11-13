@@ -1,7 +1,7 @@
 # ASD-STE100 provenance
 
 - Source: https://github.com/danyuchn/asd-ste100-skill
-- Pinned commit: `d48bfca52a2424b7f17c0de1d718e0c3b9d8f223`
+- Pinned commit: `d5caf54905eac776e9bb3a247be84153701ff4f8`
 - Imported/adapted paths: `SKILL.md`, `examples/`, `references/`,
   `scripts/`, and `LICENSE`.
 - License: MIT. Copyright (c) 2026 Dustin Yuchen Teng. See [LICENSE](LICENSE).
@@ -43,6 +43,14 @@ This is a modified standalone import in AugustoAleGon/skills.
 
 ## Update history
 
+- Updated from `d48bfca52a2424b7f17c0de1d718e0c3b9d8f223` to
+  `d5caf54905eac776e9bb3a247be84153701ff4f8`. Accepted emphasis-aware sentence
+  boundaries, GitHub autolink handling, inline HTML and list/fence parsing fixes,
+  and expanded self-tests. Preserved the local multiline quoted-metadata guard
+  in front-matter description discovery and its public CLI regressions. Added
+  public CLI coverage for emphasis/autolinks, literal globs, and fences inside
+  list items. Portable instructions, examples, references, and licensing remain
+  unchanged; the upstream snapshot changed only `scripts/ste-lint.py`.
 - Updated from `3944283c183eea13fe5bd902b572da3b4de8bf44` to
   `833810d3866645f579085aa76803541892bde692`.
   Accepted Markdown/frontmatter parsing fixes, modal-perfect detection, expanded
