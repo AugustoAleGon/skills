@@ -68,6 +68,12 @@ does not install each skill's runtime dependencies or log into services.
 | [21st-ui-review](skills/21st-ui-review/SKILL.md) | Review frontend code and runtime behavior |
 | [21st-design-sync](skills/21st-design-sync/SKILL.md) | Prepare light/dark theme CSS and publish it when requested |
 | [21st-registry](skills/21st-registry/SKILL.md) | Prepare components locally and manage themes, template listings, and metadata |
+| [ponytail](skills/ponytail/SKILL.md) | Implement the smallest complete change without dropping safety or checks |
+| [ponytail-review](skills/ponytail-review/SKILL.md) | Review a diff and connected code for concrete quality problems |
+| [ponytail-audit](skills/ponytail-audit/SKILL.md) | Audit repository code quality with ranked, evidence-backed findings |
+| [ponytail-debt](skills/ponytail-debt/SKILL.md) | Report deliberate shortcut comments as a debt ledger |
+| [ponytail-gain](skills/ponytail-gain/SKILL.md) | Display the upstream-reported benchmark with its limits |
+| [ponytail-help](skills/ponytail-help/SKILL.md) | Explain the six standalone Ponytail skills |
 
 Ask the agent to use a skill by name. For example:
 
@@ -81,6 +87,13 @@ Codex also supports `$skill-name` invocation. Each skill includes its own
 instructions, examples, and links to further guidance.
 
 ## Requirements and limits
+
+- **Ponytail:** Six standalone skills, not the upstream plugin. No hooks, global
+  rules, persistent modes, statusline, or host configuration are installed.
+  Review/audit are read-only; debt requires Git for its documented scan and saves
+  a file only when requested. Gain bundles a pinned upstream benchmark report;
+  its numbers were not independently reproduced and do not measure this repo.
+  Companion skills are optional. See [adaptations](skills/ponytail/UPSTREAM.md).
 
 - **Atomic commits:** Requires Git for inspection and committing. Planning is
   read-only; creating commits requires authorization. It does not push or rewrite

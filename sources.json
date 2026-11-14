@@ -217,6 +217,73 @@
       "license": "MIT",
       "local_path": "skills/agent-context",
       "adaptation_notes": "skills/agent-context/UPSTREAM.md"
+    },
+    "ponytail": {
+      "repository": "https://github.com/DietrichGebert/ponytail",
+      "revision": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+      "paths": [
+        "skills/ponytail/SKILL.md",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/ponytail",
+      "adaptation_notes": "skills/ponytail/UPSTREAM.md"
+    },
+    "ponytail-review": {
+      "repository": "https://github.com/DietrichGebert/ponytail",
+      "revision": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+      "paths": [
+        "skills/ponytail-review/SKILL.md",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/ponytail-review",
+      "adaptation_notes": "skills/ponytail-review/UPSTREAM.md"
+    },
+    "ponytail-audit": {
+      "repository": "https://github.com/DietrichGebert/ponytail",
+      "revision": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+      "paths": [
+        "skills/ponytail-audit/SKILL.md",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/ponytail-audit",
+      "adaptation_notes": "skills/ponytail-audit/UPSTREAM.md"
+    },
+    "ponytail-debt": {
+      "repository": "https://github.com/DietrichGebert/ponytail",
+      "revision": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+      "paths": [
+        "skills/ponytail-debt/SKILL.md",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/ponytail-debt",
+      "adaptation_notes": "skills/ponytail-debt/UPSTREAM.md"
+    },
+    "ponytail-gain": {
+      "repository": "https://github.com/DietrichGebert/ponytail",
+      "revision": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+      "paths": [
+        "skills/ponytail-gain/SKILL.md",
+        "LICENSE",
+        "benchmarks/results/2026-10-07-agentic.md"
+      ],
+      "license": "MIT",
+      "local_path": "skills/ponytail-gain",
+      "adaptation_notes": "skills/ponytail-gain/UPSTREAM.md"
+    },
+    "ponytail-help": {
+      "repository": "https://github.com/DietrichGebert/ponytail",
+      "revision": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+      "paths": [
+        "skills/ponytail-help/SKILL.md",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/ponytail-help",
+      "adaptation_notes": "skills/ponytail-help/UPSTREAM.md"
     }
   }
 }
