@@ -50,6 +50,7 @@ does not install each skill's runtime dependencies or log into services.
 
 | Skill | Purpose |
 | --- | --- |
+| [diagram-design](skills/diagram-design/SKILL.md) | Create branded HTML/SVG diagrams with templates, import helpers, and optional PNG export |
 | [atomic-commits](skills/atomic-commits/SKILL.md) | Split changes into complete logical commits and write Conventional Commit messages |
 | [agent-context](skills/agent-context/SKILL.md) | Generate repository context with evidence-backed framework inference |
 | [handoff](skills/handoff/SKILL.md) | Save a redacted conversation handoff and copy its text to the local clipboard |
@@ -87,6 +88,13 @@ Codex also supports `$skill-name` invocation. Each skill includes its own
 instructions, examples, and links to further guidance.
 
 ## Requirements and limits
+
+- **Diagram Design:** Standalone skill, not the upstream plugin. Python 3.10+
+  runs local import, SVG export, and validation helpers. PNG export additionally
+  needs Playwright and Chromium, provisioned separately. Browser rendering executes
+  HTML and may fetch webfonts; inspect inputs and authorize network access first.
+  System-font output supports offline use. Plugin slash commands and repository-only
+  checks are not installed. See [provenance and limits](skills/diagram-design/UPSTREAM.md).
 
 - **Ponytail:** Six standalone skills, not the upstream plugin. No hooks, global
   rules, persistent modes, statusline, or host configuration are installed.

@@ -284,6 +284,18 @@
       "license": "MIT",
       "local_path": "skills/ponytail-help",
       "adaptation_notes": "skills/ponytail-help/UPSTREAM.md"
+    },
+    "diagram-design": {
+      "repository": "https://github.com/cathrynlavery/diagram-design",
+      "revision": "f6db0decea96de66b901331a0f79a8d4b147ebae",
+      "paths": [
+        "skills/diagram-design",
+        "LICENSE",
+        "THIRD_PARTY_LICENSES.md"
+      ],
+      "license": "MIT",
+      "local_path": "skills/diagram-design",
+      "adaptation_notes": "skills/diagram-design/UPSTREAM.md"
     }
   }
 }
