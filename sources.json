@@ -296,6 +296,39 @@
       "license": "MIT",
       "local_path": "skills/diagram-design",
       "adaptation_notes": "skills/diagram-design/UPSTREAM.md"
+    },
+    "rust-best-practices": {
+      "repository": "https://github.com/morganlinton/BeautifulRust",
+      "revision": "b9718436d77ee7bcf17cdcb6aa27628feb95d97a",
+      "paths": [
+        "skills/rust-best-practices",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/rust-best-practices",
+      "adaptation_notes": "skills/rust-best-practices/UPSTREAM.md"
+    },
+    "rust-port": {
+      "repository": "https://github.com/morganlinton/BeautifulRust",
+      "revision": "b9718436d77ee7bcf17cdcb6aa27628feb95d97a",
+      "paths": [
+        "skills/rust-port",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/rust-port",
+      "adaptation_notes": "skills/rust-port/UPSTREAM.md"
+    },
+    "rust-review": {
+      "repository": "https://github.com/morganlinton/BeautifulRust",
+      "revision": "b9718436d77ee7bcf17cdcb6aa27628feb95d97a",
+      "paths": [
+        "skills/rust-review",
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "local_path": "skills/rust-review",
+      "adaptation_notes": "skills/rust-review/UPSTREAM.md"
     }
   }
 }

@@ -50,6 +50,9 @@ does not install each skill's runtime dependencies or log into services.
 
 | Skill | Purpose |
 | --- | --- |
+| [rust-best-practices](skills/rust-best-practices/SKILL.md) | Write idiomatic, robust Rust using five distilled style and API guides |
+| [rust-review](skills/rust-review/SKILL.md) | Review Rust code and report prioritized findings that cite the rule broken |
+| [rust-port](skills/rust-port/SKILL.md) | Port C, C++, Python, Go, or JavaScript/TypeScript code to idiomatic Rust |
 | [diagram-design](skills/diagram-design/SKILL.md) | Create branded HTML/SVG diagrams with templates, import helpers, and optional PNG export |
 | [atomic-commits](skills/atomic-commits/SKILL.md) | Split changes into complete logical commits and write Conventional Commit messages |
 | [agent-context](skills/agent-context/SKILL.md) | Generate repository context with evidence-backed framework inference |
@@ -88,6 +91,12 @@ Codex also supports `$skill-name` invocation. Each skill includes its own
 instructions, examples, and links to further guidance.
 
 ## Requirements and limits
+
+- **Rust skills:** Three standalone skills from BeautifulRust, text-only guidance.
+  The checks they recommend (`cargo fmt`, `cargo clippy`, `cargo test`) need a Rust
+  toolchain in your project. The upstream lints config is referenced by URL, not
+  bundled, and the upstream eval harness is omitted. `rust-port` and `rust-review`
+  work without `rust-best-practices`. See [provenance](skills/rust-best-practices/UPSTREAM.md).
 
 - **Diagram Design:** Standalone skill, not the upstream plugin. Python 3.10+
   runs local import, SVG export, and validation helpers. PNG export additionally
